@@ -1,0 +1,9 @@
+Converted from V3 to V5. Fixed performance issues that caused
+the visualization to run very slowly after clicking too many
+buttons. Fixed issue with color mismatches in the legend and map
+fills. Swapped out all the buttons for one slider. Prepared a more 
+complete dataset ranging from 2000 to 2019 that doesn't have as many
+empty data values as the original. Made it clear that we are using 
+median AQI (the orignal visualization didn't specify). Centered the 
+maps, input buttons/slider, and legends. Changed the color scheme 
+for the asthma map to indicate that a higher value is bad.

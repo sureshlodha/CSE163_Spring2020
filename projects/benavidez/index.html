@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta Tag -->
+    <meta charset="utf-8">
+    <title>Asthma and Ozone in the Air</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="ozone.css">
+    <!-- D3.js V5 Source -->
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- D3.js Topojson Source-->
+    <script type="text/javascript" src="https://d3js.org/topojson.v1.min.js"></script>
+  </head>
+  <body>
+    <h1><b>Asthma and Ozone in the Air</b></h1>
+    <div id="visSpace"></div>
+    <!-- Load ozone script -->
+    <script type="text/javascript" src="ozone.js"></script> 
+    <!-- After Loading ozone.js -->
+
+    <!-- Start of button div -->
+    <div id="inputs">
+      <div id="asthma-inputs">
+        <p>Reported Cases by County in 2014</p>
+        <button id="b16">Adult Asthma</button>
+        <button id="b17">Pediatric Asthma</button>
+        <button id="b18">Chronic Obstructive Pulmonary Disease (COPD)</button>
+      </div>
+      <div id="aqi-inputs">
+        <p id="aqi-inputs-title">Median AQI by County</p>
+        <p id="aqi-selected-year">Year: 2019</p>
+        <div id="aqi-slider-div">
+          <p>2000</p>
+          <input id="aqi-slider" type="range" min="2000" max="2019" value="2019">
+          <p>2019</p>
+        </div>
+      </div>
+
+      <!-- This calls a function to create the visualization -->
+      <script type="text/javascript">init();</script> 
+
+      <!-- Tooltip Definition -->
+      <div id="tooltip" class="hidden"></div>
+    </div>
+    <!-- End of button div -->
+
+    <!-- My Submission info -->
+    <div id="subminfo">
+      <hr>
+      <p><b>Christian Benavidez</b> in collaboration with <b>Suresh Lodha</b></p>
+      <p>CSE 163: Data Programming for Visualization</p>
+      <p>Spring 2020</p>
+      <a href="https://christianbnvdz.github.io/CSE163/ozone/" target="_blank">View Github-Hosted Visualization</a>
+      <h4>Sources:</h4>
+      <ul>
+        <li>Original visualization by Joanne Chan and Sabina Tomkins <a href="https://sureshlodha.github.io/CMPS165_Winter15_FinalProjects/OzoneInTheAir/" target="_blank">link</a>.</li>
+        <li>Color schemes from <a href="https://colorbrewer2.org/" target="_blank">Color Brewer</a>.</li>
+        <li>AQI data gathered from <a href="https://www.epa.gov/outdoor-air-quality-data/air-quality-index-report" target="_blank">the EPA</a>.</li>
+        <li id="alaLi">2014 Prevalance and Incidence of Lung Disease data was gathered from the <a href="https://www.lung.org/finding-cures/our-research/trend-reports/estimated-prevalence.pdf" target="_blank">American Lung Association</a> by the original creators but the link is now dead.</li>
+        <li>Link to <a href="https://github.com/christianbnvdz/CSE163/tree/master/ozone" target="_blank">Github Repository</a>.</li>
+      </ul>
+    </div>
+  </body>
+</html>
