@@ -1,0 +1,189 @@
+body {
+  font: 13px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bubbles {
+/*    float:left;*/
+  clip-path: url(#clip);
+
+}
+.dot {
+  stroke: #000;
+  clip-path: url(#clip);
+
+}
+#chart {
+    width: 960px;
+    float: left;
+}
+
+#maps {
+    width: 200px;
+    float: right;
+    position: relative;
+}
+
+.map1 {
+    float: right;
+/*    position: fixed;*/
+}
+
+
+
+.map2 {
+    float: right;
+/*    position: relative;*/
+}
+
+/*Add Tooltip Type here*/
+.tooltip {
+  font-size: large;
+  position: absolute;
+  line-height: 1.5;
+  padding: 10px;
+  background: rgba(222, 235, 255, 0.9);
+  color: #000;
+  border-radius: 20px;
+}
+
+.info {
+    float: inherit;
+}
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+
+.axis text {
+    font-family: sans-serif;
+    fill: black;
+}
+
+            .state:hover{
+                color: blue;
+            }
+            .msa:hover {
+                color: yellow;
+            }
+.slider{
+/*    background: black;*/
+/*    float: right;*/
+    margin-left: 40px;
+/*    align-content: flex-end;*/
+    
+}
+.col-sm-2{
+/*    background: black;*/
+/*    margin-left: 400px;*/
+/*    width: auto;*/
+    float: left;
+    display: contents;    
+}
+.columns {
+    column-count: 4;
+}
+.column {
+    text-align: center;
+    height: 500px;
+}
+
+ul{
+  list-style: none;
+}
+ul li{
+  float: left;
+  margin: 10px;
+}
+
+/***************************Added by Namratha Prithviraj**************************************/
+/*https://stackoverflow.com/questions/32356947/how-to-change-the-width-height-of-a-search-box*/
+#searchMSA{
+    position: absolute;
+    width:200px;
+    left:50px;
+    right:200px;
+    margin-right: 0px;
+}
+
+#searchMSA input{
+    width:200px;
+}
+
+#MSASearch{
+    position: relative;
+}
+
+.filters{
+    position: absolute;
+    top:0;
+    left:300px;
+    right:0;
+    margin-right: 0px;
+    margin:-10px;
+}
+
+.filters li{
+    border: 1px solid black;
+    padding: 3px;
+    box-shadow: 1px 1px 2px #555;
+}
+
+
+
+#searchRegion{
+    position: absolute;
+    width:200px;
+    left:50px;
+    right:200px;
+    top:30px;
+    margin-right: 0px;
+}
+
+#searchRegion input{
+    width:200px;
+}
+
+#RegionSearch{
+    position: relative;
+}
+
+.regionfilters{
+    position: absolute;
+    top: 0px;
+    left:270px;
+    right:0;
+    margin-right: 0px;
+    margin:20px;
+}
+
+.regionfilters li{
+    border: 1px solid black;
+    padding: 3px;
+    box-shadow: 1px 1px 2px #555;
+}
+
+#reset {
+  position: absolute;
+  top: 600px;
+  left: 50px;
+}
+
+#mapInstr{
+    position: absolute;
+    top: 90px;
+    left: 1060px;
+    color: gray;
+}
+
+/*********************************************************************************************/
+
+
+

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            .tooltip {
+                position: absolute;	
+                text-align: center; 
+                width: 450px;					
+                height: 60px;									
+                font: 15px sans-serif;
+                font-weight: bold;
+                background: lightsteelblue;	
+                border: 0px;		
+                border-radius: 10px;			
+                pointer-events: none;
+            }
+            .grid line {
+                stroke: lightgrey;
+                stroke-opacity: 2.0 ;
+                shape-rendering: crispEdges;
+            }
+            #select {
+              position: absolute;
+                left:12%;
+                top:70px;
+                margin-left: -78px;
+                padding: 10px;
+                outline: none;
+            }
+            
+            #selectYear {
+                position: absolute;
+                left:8%;
+                top:70px;
+                margin-left: -78px;
+                padding: 10px;
+                outline: none;
+            }
+            
+            .header {
+              padding: 20px;
+              background: #ff99cc;
+              text-align: center;
+              color: white;
+              font-size: 20px;
+            }
+            p {
+              text-indent: 2em;
+            } 
+        </style>
+        <script src="https://d3js.org/d3.v5.js"></script>
+    </head>
+    <body style = "background-color: aliceblue">
+
+        <select id = "select" onchange = "toggle(this)">
+            <option value="Highest Paying Men's Jobs">Men's wage (high to low)</option>
+            <option value="Lowest Paying Men's Jobs">Men's wage (low to high)</option> 
+            <option value="Highest Paying Women's Jobs">Women's wage(high to low)</option>
+            <option value="Lowest Paying Women's Jobs">Women's wage (low to high)</option>
+            <option value="Greatest Wage Gap">Wage Gap (high to low)</option> 
+            <option value="Smallest Wage Gap">Wage Gap (low to high) </option>
+        </select>
+            
+        <select id = "selectYear" onchange = "toggleYear(this)">
+            <option value ="2019"> 2019 </option>
+            <option value ="2018"> 2018 </option>
+            <option value ="2017"> 2017 </option>
+            <option value ="2016"> 2016 </option>
+            <option value ="2015"> 2015 </option>
+            <option value ="2014"> 2014 </option>
+            <option value ="2013"> 2013 </option>
+            <option value ="2012"> 2012 </option>
+            <option value ="2011"> 2011 </option>
+            <option value ="2010"> 2010 </option>
+            <option value ="2009"> 2009 </option>   
+        </select>
+        
+        <div class = "header">
+            <h1> US Wage Gap</h1>
+            <p> Over many occupations and years</p>
+        </div>
+        
+      
+        <br>
+        <div id="wageGap"></div>
+        
+        
+        
+        <script>
+            //graph margins
+            var margin = {top: 100, right: 30, bottom: 90, left: 600},
+            width = 2300 - margin.left - margin.right,
+            height = 3500 - margin.top - margin.bottom;
+
+            // creating SVG
+            var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            
+            
+            //Tooltip 
+            var div = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0); 
+            
+            //Initialized modes 
+            var mode = "Greatest Wage Gap"; 
+            var year = "2019"
+            
+            // Initialized sizes 
+            var circleSize = 10; 
+            var textSize = 20; 
+            var lineSize = 10
+            
+            drawGraph(); 
+            
+            function drawGraph(){
+                d3.csv("USWagesByGender.csv").then(function(data){
+                   // d3.selectAll("svg > *").remove(); 
+    
+    
+                    d3.selectAll("circle").remove()
+                    d3.selectAll("text").remove()
+                    d3.selectAll("line").remove()
+                    
+              
+                    data.forEach(function(d) {
+                        d.men = +d.men;
+                        d.women = +d.women;
+                        d.gap = +(Math.abs( +(d.men) - (+(d.women))));
+                    })
+                    
+                    var thisData = []; 
+                    for (i = 0 ; i <data.length ; i++){
+                        if (data[i].year == year){
+                            thisData.push(data[i])
+                        }
+                    }
+                    
+                    
+                    console.log(data)
+                    console.log(thisData)
+                    
+                    thisData.sort(function(b,a){
+                        if (mode == "Highest Paying Women's Jobs"){
+                              return b.women - a.women; 
+                        }
+                        if (mode == "Lowest Paying Women's Jobs"){
+                            return a.women - b.women; 
+                        }
+                        if (mode == "Highest Paying Men's Jobs"){
+                            return b.men - a.men; 
+                        }
+                        if (mode == "Lowest Paying Men's Jobs"){
+                            return a.men - b.men; 
+                        }
+                        if (mode == "Greatest Wage Gap"){
+                            return b.gap- a.gap; 
+                        }
+                        if (mode == "Smallest Wage Gap"){
+                            return a.gap - b.gap; 
+                        }    
+
+                    })
+                    
+                    
+                     // Resizing SVG elements 
+                    if (year == "2019"){
+                        circleSize = 10;    
+                        textSize = "20px"
+                        lineSize = 20
+                        xScale = [300, 3000]
+                    }
+                    
+                    if (year == "2018"){
+                        circleSize = 7;
+                        textSize = "14px";
+                        lineSize = 16; 
+                        xScale = [300,2600]
+                    }
+                    if (year == "2017"){
+                        circleSize = 7;
+                        textSize = "14px";
+                        lineSize = 16; 
+                        xScale = [300,2500]
+                    }      
+                    if (year == "2016") { 
+                        circleSize = 8;
+                        textSize = "15px";
+                        lineSize = 17; 
+                        xScale = [300,2500]
+                    }
+                    if (year == "2015") { 
+                        circleSize = 8;
+                        textSize = "15px";
+                        lineSize = 17; 
+                        xScale = [300,2500]
+                    }
+                    if (year == "2014") { 
+                        circleSize = 9;
+                        textSize = "16px";
+                        lineSize = 18; 
+                        xScale = [300,2300]
+                    }
+                    if (year == "2013") { 
+                        circleSize = 9;
+                        textSize = "16px";
+                        lineSize = 18; 
+                        xScale = [300,2300]
+                    }
+                    
+                    if (year == "2012") {
+                        circleSize = 9;
+                        textSize = "16px";
+                        lineSize = 18; 
+                        xScale = [300,2300]
+                    }
+                    if (year == "2011") {
+                        circleSize = 9;
+                        textSize = "16px";
+                        lineSize = 18; 
+                        xScale = [300,2300]
+                    }
+                    if (year == "2010") {
+                        circleSize = 9;
+                        textSize = "16px";
+                        lineSize = 18; 
+                        xScale = [300,2300]
+                    }
+                    if (year == "2009"){
+                        circleSize = 8; 
+                        textSize = "15px";
+                        lineSize = 17
+                        xScale = [300, 2200] 
+                    }
+                                
+                    // Creating X axis scale
+                    var x = d3.scaleLinear()
+                        .domain(xScale)
+                        .range([ 0, width])
+
+                    //Creating Y axis scale  
+                    var y = d3.scaleBand()
+                        .domain(thisData.map(function(d){return d.occupation}))
+                        .range([height,0])
+                        .padding(1)    
+
+                    //Creating X axis gridlines (We dont need y axis since the data is printed only left to right)      
+                    function make_x_grid() {
+                        return d3.axisBottom(x).ticks(20); 
+                    }
+
+                    //Appending gridlines first so that the gridlines appear below the rest of the graph 
+                    svg.append("g")			
+                      .attr("class", "grid")
+                      .attr("transform", "translate(0," + height + ")")
+                      .call(make_x_grid()
+                          .tickSize(-height)
+                          .tickFormat("")
+                    )
+                    
+                  
+                    //Adds the x Axis to the graph, translating to view the text easier  
+                    svg.append("g")
+                       .attr("transform", "translate(0," + height + ")")
+                       .call(d3.axisBottom(x))
+                       .selectAll("text") 
+                       .attr("font-size","20px")
+                      
+
+                    //adding y axis 
+                    svg.append("g")
+                        .call(d3.axisLeft(y))
+                        .attr("font-size",textSize)
+
+                    //Line
+                    svg.selectAll("myline")
+                        .data(thisData)
+                        .enter()
+                        .append("line")
+                            .attr("x1", function(d) {return x(d.women)} )
+                            .attr("x2", function(d) {return x(d.men)} ) 
+                            .attr("y1", function(d) {return y(d.occupation)}  )
+                            .attr("y2", function(d) {return y(d.occupation); })
+                            .attr("stroke", "grey")
+                            .attr("fill" , "white")
+                            .style("opacity" , 0.5)
+                            .attr("stroke-width", lineSize)
+                        .on("mouseover",function(d){
+                            d3.select(this).transition().duration(200).style("opacity" , 1)
+                            div.transition()
+                                .duration(500)
+                                .style("opacity" , 0.8)
+                                div.html(d.occupation + "<br>" + "Wage difference(weekly):" + " $" + d.gap)
+                                .style("left", (d3.event.pageX - 200 ) + "px")	//Changing x and y values so we dont obscure mouse pointer view 	
+                                .style("top", (d3.event.pageY - 50) + "px");//These are used so tooltip appears near county we are observing 
+                        })
+                        .on("mouseout",function(d){
+                            d3.select(this).transition().duration(200).style("opacity", 0.5)
+                            div.transition()
+                                .duration(500)
+                                .style("opacity", 0); 
+
+                        })
+
+                    //girls
+                    svg.selectAll("girls")
+                        .data(thisData)
+                        .enter()
+                        .append("circle")
+                            .attr("cx", function(d) {return x(d.women)} )
+                            .attr("cy", function(d){ return y(d.occupation)})
+                            .attr("r", circleSize)
+                            .style("fill", "Pink")
+                            .attr("stroke", "Red")
+                        .on("mouseover",function(d){
+                            d3.select(this).transition().duration(200).attr("r" , circleSize + 5)
+                            div.transition()
+                                .duration(200)
+                                .style("opacity" , 0.8)
+                                div.html(d.occupation + "<br>" + "Female wage :" + " $" + d.women + " per week")
+                                .style("left", (d3.event.pageX - 200) + "px")	//Changing x and y values so we dont obscure mouse pointer view 	
+                                .style("top", (d3.event.pageY - 50) + "px");//These are used so tooltip appears near county we are observing 
+                        })
+                        .on("mouseout",function(d){
+                            d3.select(this).transition().duration(200).attr("r", circleSize)
+                            div.transition()
+                                 .duration(500)
+                                .style("opacity", 0); 
+                        })
+
+                    //guys 
+                    svg.selectAll("guys")
+                        .data(thisData)
+                        .enter()
+                        .append("circle")
+                            .attr("cx", function(d) {return x(d.men)} )
+                            .attr("cy", function(d){ return y(d.occupation)})
+                            .attr("r", circleSize)
+                            .style("fill", "Cyan")
+                            .attr("stroke", "Blue")
+                        .on("mouseover",function(d){
+                            d3.select(this).transition().duration(200).attr("r" , circleSize + 5)
+                            div.transition()
+                                .duration(200)
+                                .style("opacity" , 0.8)
+                                div.html(d.occupation + "<br>" + "Male wage :" + " $" + d.men + " per week")
+                                .style("left", (d3.event.pageX - 200) + "px")	//Changing x and y values so we dont obscure mouse pointer view 	
+                                .style("top", (d3.event.pageY - 50) + "px");//These are used so tooltip appears near county we are observing 
+                        })
+                        .on("mouseout",function(d){
+                            d3.select(this).transition().duration(200).attr("r", circleSize)
+                            div.transition()
+                                 .duration(500)
+                                 .style("opacity", 0); 
+                        })
+
+                    if (year == "2019"){
+                        svg.selectAll("differences")
+                        .data(thisData)
+                        .enter() 
+                        .append("circle")
+                            .attr("cx", 13)
+                            .attr("cy", function(d) { return y(d.occupation)})
+                            .attr("r", circleSize )
+                            .attr("fill", function(d) { 
+                                if (d.diff > 0) {
+                                    return "Red"
+                                }
+                                if (d.diff < 0) {
+                                    return "Green"
+                                }
+                                else {
+                                    return "#f0f8ff"
+                                }
+                            })
+                            .attr("opacity", 0.5)
+                        .on("mouseover",function(d){
+                            if (d.diff > 0 || d.diff < 0) { 
+                                d3.select(this).transition().duration(200).attr("opacity" , 1).attr("r", circleSize + 2)
+                                div.transition()
+                                    .duration(200)
+                                    .style("opacity" , 0.8)
+                                    if (d.diff > 0){
+                                        div.html("Wage gap has increased by $" + d.diff + " since 2009")
+                                         .style("left", (d3.event.pageX - 200) + "px")	//Changing x and y values so we dont obscure mouse pointer view 	
+                                         .style("top", (d3.event.pageY - 50) + "px");//These are used so tooltip appears near county we are observing 
+                                    }
+                                    if (d.diff < 0){
+                                         div.html("Wage gap has decrease by $" + (-1 * d.diff)  + " since 2009")
+                                        .style("left", (d3.event.pageX - 200) + "px")	//Changing x and y values so we dont obscure mouse pointer view 	
+                                        .style("top", (d3.event.pageY - 50) + "px");//These are used so tooltip appears near county we are observing 
+                                    }
+                                    else{
+                                        return; 
+                                    }
+                            }
+                        })
+                        .on("mouseout",function(d){
+                            if (d.diff > 0 || d.diff < 0) { 
+                                d3.select(this).transition().duration(200).attr("opacity", 0.5).attr("r", circleSize)
+                                div.transition()
+                                     .duration(200)
+                                     .style("opacity", 0); 
+                            }
+                        })
+                    }
+                    
+                    //Yaxis title top 
+                    svg.append("text")
+                        .attr("x" , -120)
+                        .attr("y", 10)
+                        .attr("font-size","20px")
+                        .text("Occupation")
+                        .attr("font-family", "sans-serif")
+                        .attr("font-weight", "bold")
+
+                    //Yaxis title top 
+                    svg.append("text")
+                        .attr("x" , -120)
+                        .attr("y", 10)
+                        .attr("font-size","20px")
+                        .text("Occupation")
+                        .attr("font-family", "sans-serif")
+                        .attr("font-weight", "bold")
+                    //Yaxis bottom
+                    svg.append("text")
+                        .attr("x" , -120)
+                        .attr("y", height)
+                        .attr("font-size","20px")
+                        .text("Occupation")
+                        .attr("font-family", "sans-serif")
+                        .attr("font-weight", "bold")
+
+                    //Y axis left label 
+                    svg.append("text")
+                        .attr("x" ,-7)
+                        .attr("y", height + 23)
+                        .attr("font-size","22px")
+                        .text("$0") 
+
+                    //X axis main label
+                    svg.append("text")
+                        .attr("x", (width / 2) )
+                        .attr("y", height + 50)
+                        .attr("font-size", "20px")
+                        .attr("font-weight", "bold")
+                        .text("Hourly Wage")
+
+                    // Legend
+                    svg.append("circle")
+                        .attr("cx",1500)
+                        .attr("cy",20)
+                        .attr("r", "8")
+                        .style("fill", "Cyan")
+                        .attr("stroke", "blue")
+                    svg.append("text")
+                        .attr("x",1520)
+                        .attr("y",25)
+                        .text("Male")
+                        .style("font-size", "10px")
+                     svg.append("circle")
+                        .attr("cx",1500)
+                        .attr("cy",40)
+                        .attr("r", "8")
+                        .style("fill", "Pink")
+                        .attr("stroke", "Red")
+                    svg.append("text")
+                        .attr("x",1520)
+                        .attr("y",45)
+                        .text("Female")
+                        .style("font-size", "10px")     
+                })
+            } 
+            
+            function toggle(input){
+                mode = input.value; 
+               
+                console.log(mode)
+                
+                drawNewGraph(); 
+            }
+            
+            function toggleYear(input){
+                year = input.value; 
+                
+                drawNewGraph(); 
+            }
+            
+            function drawNewGraph() {
+                drawGraph(); 
+            }
+        
+        </script>
+        
+        
+        <div>
+            <p> Created by Siddharth Subramanian in collaboration with Suresh Lodha (June 2020) </p>
+            <p> <a href = "https://siddharthsubram.github.io/Gender-versus-wage-by-occupation-/"> Github link here</a></p>
+        </div>
+        
+        <div>
+            <span><strong>Files Submitted:</strong></span>
+            <p>index.html</p>
+            <p>USWagesByGender.csv</p>
+        </div>
+        <div>
+            <span><strong>Data Sources:</strong></span>
+            <p><a href = "https://www.bls.gov/cps/tables.htm"> US Bureau of Labor Statistics</a></p>
+        </div>
+            <span><strong>Visualization Sources:</strong></span>span>
+            <p> <a href = "https://informationisbeautiful.net/visualizations/gender-pay-gap/"> David McCandless's lolipop info visualization (2016)</a>/p>
+        <div>
+            <span><strong> Code References</strong></span>
+            <p> <a href = "https://informationisbeautiful.net/visualizations/gender-pay-gap/"> CSS Headers </a> </p>
+            <p> <a href = "https://www.d3-graph-gallery.com/graph/lollipop_cleveland.html">  Cleveland dot plot </a></p>
+            <p> <a href = "https://www.w3schools.com/css/css_dropdowns.asp"> Drop Dowm Menus</a> </p>
+            <p> <a href = "https://www.lifewire.com/how-to-indent-paragraphs-with-css-3467086"> Tabs/indentation </a></p>
+            <p> <a href = "https://stackoverflow.com/questions/22452112/nvd3-clear-svg-before-loading-new-chart" > Making new grpah </a></p>
+        </div>
+        
+
+        
+    </body>
+</html>

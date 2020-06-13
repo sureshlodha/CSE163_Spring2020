@@ -1,0 +1,5 @@
+Generating data based on the average American schedule.
+
+Creating a stacked area chart, with interactivity.
+
+Created a timeline based on the data that was created.

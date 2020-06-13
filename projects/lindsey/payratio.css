@@ -1,0 +1,83 @@
+h1 {
+    text-align: center;
+    font: 40px sans-serif;
+}
+
+h2 {
+    text-align: left;
+    padding-left: 100;
+    padding-right: 100;
+    text-indent: 0em;
+    font: 11px sans-serif;
+}
+
+hr {
+    left: 80px;
+    width: 850px;
+    stroke: "lightgrey";
+    position: absolute;
+    top: 70px;
+}
+
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 185px;
+    height: 125px;
+    padding: 2px;
+    font: 11.5px sans-serif;
+    background: aliceblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.axis line,
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+    font: 14px sans-serif;
+}
+
+.right {
+    float: right;
+}
+
+h1 {
+    shape-rendering: crispEdges;
+}
+
+#circle-hover:hover {
+    opacity: 0.4;
+}
+
+.topnav {
+    width: 100%;
+    text-align: center;
+}
+
+#svgcontainer {
+    display: block;
+    padding-right: 150;
+}
+
+#blurb {
+    position: absolute;
+	text-align: left;
+	font: 8px sans-serif;
+    width: 70px;
+    height: 20px;
+}
+
+select {
+    padding: 4px;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+    position: relative;
+    padding: 5px;
+    font-size: 10px;
+}

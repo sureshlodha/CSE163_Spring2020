@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Timeline Comparison</title>
+    <link rel="stylesheet" type="text/css" href="timeline.css">
+    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="//unpkg.com/timelines-chart@2"></script>
+    <link rel="stylesheet" type="text/css" href="stacked.css">
+    <link id="favicon" rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+    <h2 style="text-align:center; color:steelblue">
+        <bold>How different individuals spend their day</bold>
+    </h2>
+    <!-- Your D3.js code for making a timeline-->
+    <div id="myPlot"></div>
+
+    <script type="text/javascript" src="timeline.js"></script>
+    <!-- Button -->
+
+    <hr>
+    <h2 style="text-align:center; color:steelblue">
+        <bold>How an individual spends his/her day, cumulative over all time periods</bold>
+    </h2>
+    <div id="my_dataviz"></div>
+    <script src="stacked_area_chart.js"></script>
+    <p>Instructions:</p>
+    <p>In order to zoom in to the graph drag your mouse over the graph while holding left mouse button.</p>
+    <p>In order to reset zoom double click.</p>
+    <div class="container">
+        <div class="options">
+            <div class="checkbox">
+                <ul class="person-list"> </ul>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+    <!-- Submission Info -->
+    <p>Created by:</p>
+    <p>Saujanya Mulukutla, Jonne Kaunisto in collaboration with Suresh Lodha</p>
+    <p>CSE 163, Spring 2020</p>
+    <p>Description: this is a Schedule of Johnny, Tom, Bert. Checking on the boxes will gnerate a stacked area chart.</p>
+    <!-- Create a list using <ul> and <li> tag -->
+    <p>Files:</p>
+    <ul>
+        <li>index.html</li>
+        <li>timeline.js</li>
+        <li>timeline.css</li>
+        <li>output.json</li>
+        <li>schedule.json</li>
+    </ul>
+    <p>Github Link:
+        <a href="https://saujanyam.github.io/TimelineComparison/">https://saujanyam.github.io/TimelineComparison/</a>
+    </p>
+    <p> Sources: </p>
+    <ul>
+        <li><a href="https://github.com/vasturiano/timelines-chart">https://github.com/vasturiano/timelines-chart</a></li>
+        <li><a href="https://archive.nytimes.com/www.nytimes.com/interactive/2009/07/31/business/20080801-metrics-graphic.html?">https://archive.nytimes.com/www.nytimes.com/interactive/2009/07/31/business/20080801-metrics-graphic.html?</a></li>
+    </ul>
+</body>
+
+</html>

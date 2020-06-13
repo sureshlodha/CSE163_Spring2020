@@ -1,0 +1,65 @@
+body {
+  text-align: center;
+  overflow: none;
+  position: relative;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 10px;
+  background: #c7c7c7;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 20px;
+  background: rgb(28, 36, 160);
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 20px;
+  background: rgb(28, 36, 160);
+  cursor: pointer;
+}
+
+.options {
+  text-align: center;
+}
+
+.bar {
+  display: inline-flex;
+}
+
+.footer {
+  text-align: left;
+  color: #444343;
+  position: absolute;
+  float: left;
+}
+
+#select, #select2 {
+  height: 2rem;
+  margin: 0 2rem 0 2rem;
+}
+
+.column{
+  text-align: center;
+}

@@ -1,0 +1,63 @@
+<!--https://people.ucsc.edu/~mrbhatia/-->
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="restaurant.css">
+        <script type="text/javascript" src='https://d3js.org/d3.v5.min.js'></script>
+        <h1 align="center">2019 Michelin Star Restaurants SF | LA | NY</h1>
+    </head>
+    <!--add the d3 v5 script as well as the opening javascript-->
+    <body>
+        <div class="legend" style="background-color: lightslategray"><p style="text-align: center">Legend</p>
+            <p><span class="legDot" style="background-color: #9499F9"></span><img src="michelin-star-one.png" width="50%"></p>
+            <p><span class="legDot" style="background-color: #EF8AAF"></span><img src="michelin-star-two.png" width="50%"></p>
+            <p><span class="legDot" style="background-color: #FDE24A"></span><img src="michelin-star-three.png" width="50%"></p>
+            </div>
+        <input type="text" value="Enter Zip Code" id="zipInput">
+<!--        create the svg for the node graph-->
+        <svg id='viz'></svg>
+<!--        insert js and d3 script into code to create the node graph-->
+        <script type="text/javascript" src="restaurant.js"></script>
+        <h4 style = "text-align:center">Created by: Manav Bhatia<br>In collaboration with: Professor Suresh Lodha CSE163<br><a href="https://github.com/manavrbhatia/CSE163FinalProject">Github Repo</a></h4>
+         <div class="column">
+                <p><strong>Supported Interactions:</strong></p>
+                <p>Pan Drag and Zoom over Graph with mouse to move around</p>
+                <p>Hover over a node to see restaurant information</p>
+                <p>Click on a node to see michelin guide page and make a reservation</p>
+                <p>Click on white graph links to see area zip code on a map</p>
+                <p>Type zip code in top bar and click enter to see restaurants in zip code</p>
+                </div>
+        <div class="columns">
+            <div class="column">
+                <span><strong>Files Submitted:</strong></span>
+                <p>restaurant.html</p>
+                <p>restaurant.js</p>
+                <p>restaurant.css</p>
+                <p>restaurant.json</p>
+                <p>jsonediter.py</p>
+                <p>michelin-star-one.png</p>
+                <p>michelin-star-two.png</p>
+                <p>michelin-star-three.png</p>
+                <p>onestar.json</p>
+                <p>twostar.json</p>
+                <p>threestar.json</p>
+            </div>
+            <div class="column">
+                <p><strong>Data Sources:</strong></p>
+                <p><a href="https://www.kaggle.com/jackywang529/michelin-restaurants">Michelin Restaurants  (Kaggle)</a></p>
+                <p><a href="https://guide.michelin.com/us/en/california">Michelin Guide</a></p>
+
+          </div>
+            <div class="column">
+                <p><strong>Code Sources:</strong></p>
+                <p><a href="https://bl.ocks.org/mapio/53fed7d84cd1812d6a6639ed7aa83868">Base Node Link Code</a>  (Massimo Santini)</p>
+                <p><a href="https://bl.ocks.org/d3indepth/9491e05b23ca7a02fca8d4ddf12df5df">Force Layout Force's</a>  (d3indepth)</p>
+                <p><a href="//https://github.com/d3/d3-timer">Timers</a>  (d3 API)</p>
+                <p><a href="https://stackoverflow.com/questions/15261447/how-do-i-capture-keystroke-events-in-d3-force-layout">D3 Key Press</a>  (Stack Overflow)</p>
+                <p><a href="https://bl.ocks.org/d3noob/a22c42db65eb00d4e369">Tooltip's</a>  (d3 noob)</p>
+                <p><a href="https://github.com/gautam0826/CMPS-165-Project">Credits Layout</a>  (CMPS165 Final Project)</p>
+                <p><a href="https://stackoverflow.com/questions/13949637/how-to-update-json-file-with-python">Python edit json files</a>  (Stack Overflow)</p>
+                </div>
+
+        </div>
+    </body>
+</html>

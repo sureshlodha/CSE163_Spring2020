@@ -1,0 +1,170 @@
+{
+ "name": "UCSC CS Courses",
+ "children": [
+  {
+   "name": "Fundamentals",
+   "children": [
+    {
+     "name": "Programming",
+     "children": [
+      {"name": "Beginning Programming in Python (CSE 20)", "num": "CSE 20", "size": "learn data types, control flow, functions, data structures, and object-oriented programming all in Python", "required": "true"},
+      {"name": "Programming Abstractions: Python (CSE 30)", "num": "CSE 30", "size": "create objects in Python with primitive operations", "required": "true"},
+      {"name": "Comparative Languages or Functional Programming (CSE 112 or CSE 114 or CSE 116)", "num": "CSE 112 or 144 or 116", "size": "compare styles and design principles of several programming languages or problem solve with higher-order functions", "required": "true"}
+     ]
+    },
+    {
+     "name": "Architecture",
+     "children": [
+      {"name": "Computer Systems and Assembly Language (CSE 12/L)", "num": "CSE 12/L", "size": "explore how computers compute in hardware and software", "required": "true"},
+      {"name": "Computer Systems and C Programming (CSE 13S or CSE 13E)", "num": "CSE 13S or 13E", "size": "learn and use C to control embedded computing system", "required": "true"},
+      {"name": "Computer Architecture (CSE 120)", "num": "CSE 120", "size": "understand MIPS, ISA, and RISC and the evolution of CPU microarchitecture from single to multi-cycle pipelines", "required": "true"},
+      {"name": "Principles of Computer Systems Design or Intro to Operating Systems (CSE 130 or CSE 131)", "num": "CSE 130 or 131", "size": "cover principles of computer-systems design and complexity, memory, synchronization, layering, etc.", "required": "true"}
+     ]
+    },
+    {
+    "name": "Theory",
+    "children": [
+     {"name": "Introduction to Data Structures and Algorithms (CSE 101)", "num": "CSE 101", "size": "learn abstract data types and data structures like linked lists, stacks/queues, hash tables, trees, and evaluate big-Oh of algorithms", "required": "true"},
+     {"name": "Introduction to Analysis of Algorithms (CSE 102)", "num": "CSE 102", "size": "conduct construction and mathematical analysis of divide-and-conquer, greedy, and dynamic programming algorithms", "required": "true"},
+     {"name": "Computational Models (CSE 103)", "num": "CSE 103", "size": "represent regular languages using pumping lemmas, Turing machines, and learning Church-Turing thesis, etc.", "required": "true"}
+    ]
+   }
+   ]
+  },
+  {
+   "name": "Math",
+   "children": [
+    {
+     "name": "Calculus",
+     "children": [
+      {"name": "Calculus For Science, Engineering, And Mathematics (MATH 19A or MATH 20A)", "num": "MATH 19A or 20A", "size": "calculate limits, derivatives of various functions, and apply principles to max and min problems", "required": "true"},
+      {"name": "Calculus For Science, Engineering, And Mathematics (MATH 19B or MATH 20B)", "num": "MATH 19B or 20B", "size": "calculate definite integrals, convergence tests, and the Taylor and Maclaurin series using the fundemental theorem of calculus", "required": "true"},
+      {"name": "Vector Calculus (AM 30 or MATH 23A)", "num": "AM 30 or MATH 23A", "size": "calculate vectors in n-dimensional Euclidean space, Taylor's theorem with several variables, etc.", "required": "true"}
+     ]
+    },
+    {
+    "name": "Applied Math", "children": [
+    {"name": "Applied Discrete Mathematics (CSE 16)", "num": "CSE 16", "size": "understand sets, functions, predicate calculus, and mathematical proof methods like induction and contradiction", "required": "true"},
+    {"name": "Linear Algebra (MATH 21)", "num": "MATH 21", "size": "compute the determinants, linear transformations, eigenvalues, and more on matrices", "required": "true"},
+    {"name": "Probability & Statistics (CSE 107 or STAT 131)", "num": "CSE 107 or STAT 131", "size": "learn stochastic analysis tools like probabilty, Bayes Theorem, Bernnoulli trials, etc.", "required": "true"}
+    ]
+    }
+   ]
+  },
+  {
+   "name": "Electives",
+   "children": [
+    {
+     "name": "Computer Science",
+     "children": [
+      {"name": "Graphics", 
+      "children": [
+        {"name": "Introduction to Computer Graphics/Lab (CSE 160/L)", "num": "CSE 160/L", "size": "modeling, rendering computer-generated imagery", "capstone": "true", "elec": true}
+      ], "elec": true
+      },
+      {"name": "Data-Driven", 
+      "children": [
+        {"name": "Introduction to Data Mining (CSE 145)", "num": "CSE 145", "size": "learn techniques, algorithms, and applications like preprocessing, exploration, classification, clustering, mining text, and sequential/social data", "elec": true},
+        {"name": "Data Programming for Visualization (CSE 163)", "num": "CSE 163", "size": "create interactive web visualizations using data", "preq": "true", "capstone": "true", "elec": true},
+        {"name": "Database Systems I (CSE 180)", "num": "CSE 180", "size": "learn concepts, approaches, tools, and methodology of database design", "elec": true},
+        {"name": "Database Systems II (CSE 181)", "num": "CSE 181", "size": "architecture and implementation of databases", "capstone": "true", "elec": true},
+        {"name": "Introduction to Database Management Systems (CSE 182)", "num": "CSE 182", "size": "explore entity-relationship, relational, XML data model, normal forms, SQL, etc.", "elec": true},
+        {"name": "Data Wrangling and Web Scraping (CSE 184)", "num": "CSE 184", "size": "data extraction, cleaning, and manipulation", "preq": "true", "capstone": "true", "elec": true}
+      ], "elec": true
+      },
+      {"name": "Programming", 
+       "children": [
+        {"name": "Computability and Computational Complexity (CSE 104/W)", "num": "CSE 104/W", "size": "Turing machines, Chomsky hierarchy, Halting problem, NP-completeness, etc", "elec": true},
+        {"name": "Applied Graph Theory and Algorithms (CSE106)", "num": "CSE 106", "size": "explore trees, Eulerian and Hamiltonian graphs, graph transversal to solve problems in connectivity, routing, etc.", "elec": true},
+        {"name": "Advanced Programming (CSE 111)", "num": "CSE 111", "size": "introduction to object-oriented techniques including data abstraction, inheritance, polymorphism, etc.", "elec": true},
+        {"name": "Computer Security (CSE 132)", "num": "CSE 132", "size": "introduction to computer/network security like access control, security in programming languages, basic cryptography, and ecurity protocols", "elec": true}
+        ], "elec": true
+      },
+      {"name": "Machine Learning", 
+       "children": [
+        {"name": "Artificial Intelligence (CSE 140)", "num": "CSE 140", "size": "machine learning, optimization problems, computational methods, etc.", "capstone": "true", "elec": true},
+        {"name": "Machine Learning and Data Mining (CSE 142)", "num": "CSE 142", "size": "machine learning algorithms and their application in online learning, boosting, nearest neighbor techniques, etc.", "elec": true},
+        {"name": "Introduction to Natural Language Processing (CSE 143)", "num": "CSE 143", "size": "programs that generate and learn natural languages", "capstone": "true", "elec": true},
+        {"name": "Applied Machine Learning (CSE 144)", "num": "CSE 144", "size": "statistical inference to various complex model networks", "capstone": "true", "elec": true}
+        ], "elec": true
+      }, 
+      {"name": "System Design", 
+      "children": [
+        {"name": "Fundamentals of Compiler Design I (CSE 110A)", "num": "CSE 110A", "size": "Introduction to study of compiler implementation", "elec": true},
+        {"name": "Fundamentals of Compiler Design II (CSE 110B)", "num": "CSE 110B", "size": "Advanced study of compiler implementation", "capstone": "true", "elec": true},
+        {"name": "Parallel Programming (CSE 113)", "num": "CSE 113", "size": "explore topics like types of parallel computers and programming platforms from design, implementation, to optimization, etc.", "preq": "true", "elec": true},
+        {"name": "Microprocessor System Design/Lab (CSE 121/L)", "num": "CSE 121/L", "size": "microprocessor and microcontroller architecture, etc.", "capstone": "true", "elec": true},
+        {"name": "Introduction to VLSI Digital System Design (CSE 122)", "num": "CSE 122", "size": "explore very large scale integrated custom integrated circuits, learning about semiconductor manufacturing, logic families, etc.", "elec": true},
+        {"name": "Logic Design with Verilog (CSE 125/L)", "num": "CSE 125/L", "size": "design and verify systems with emphasis on ASIC and FPGA Verilog digital logic design", "elec": true},
+        {"name": "Embedded Operating Systems (CSE 134)", "num": "CSE 134", "size": "explore the internal design of an embedded operating systems kernel", "preq": "true", "elec": true},
+        {"name": "Distributed Systems (CSE 138)", "num": "CSE 138", "size": "communication, naming, synchronization, etc.", "capstone": "true", "elec": true},
+        {"name": "Introduction to Computer Networks (CSE 150/L)", "num": "CSE 150/L", "size": "addresses issues arising in organizing communications among autonomous computers", "preq": "true", "elec": true},
+        {"name": "Advanced Computer Networks (CSE 151/L)", "num": "CSE 151/L", "size": "in-depth coverage CSE 150 topics like routing, transport, internetworking, plus wireless, application-layer services, security", "preq": "true", "elec": true},
+        {"name": "Network Programming/Lab (CSE 156/L)", "num": "CSE 156/L", "size": "methods & tools ex. network protocal support", "capstone": "true", "elec": true},
+        {"name": "Introduction to Mechatronics/Lab (ECE 118/L)", "num": "ECE 118/L", "size": "designing intelligent electro-mechanical systems", "capstone": "true", "elec": true}
+      ], "elec": true
+      },
+      {"name": "Applications", 
+      "children": [
+        {"name": "Introduction to Software Engineering (CSE 115A)", "num": "CSE 115A", "size": "characteristics of well-engineered software systems", "dc": "true", "elec": true},
+        {"name": "Software Design Project I (CSE 115B)", "num": "CSE 115B", "size": "specify, design, construct, test, and document a complete software system in a specialized application domain", "elec": true},
+        {"name": "Software Design Project II (CSE 115C)", "num": "CSE 115C", "size": "develop, test, document, and deploy substantial software project", "capstone": "true", "elec": true},
+        {"name": "Mobile Applications (CSE 118)", "num": "CSE 118", "size": "SDK, native methodologies, platform and server division, etc.", "capstone": "true", "elec": true},
+        {"name": "Engineering Design Project I & II (CSE 123A&B)", "num": "CSE 123A&B", "size": "two-course sequence to apply research, planning, procurement, and more skills for a substantial project", "preq": "true", "elec": true},
+        {"name": "Internet of Things (CSE 157)", "num": "CSE 157", "size": "concepts and techniques in the design of IoT like dominant architectures, protocols, wireless infrastructure, security etc.", "preq": "true", "elec": true},
+        {"name": "Mobile Sensing and Interaction (CSE 167)", "num": "CSE 167", "size": "hands-on knowledge and experience with modern mobile computing platforms for sensing and interactions tasks", "elec": true},
+        {"name": "Web Applications (CSE 183)", "num": "CSE 183", "size": "build and design web apps", "capstone": "true", "elec": true}
+      ], "elec": true
+      },
+      {"name": "Research & Industry", 
+      "children": [
+        {"name": "Ethics & Algorithms (CSE 146)", "num": "CSE 146", "size": "introduction to data-driven and algorithmic decision making and ethical frameworks for evaluating automated systems", "elec": true},
+        {"name": "Technical Writing and Communication in CS (CSE 185S/E)", "num": "CSE 185S/E", "size": "exercise writing to engineers", "dc": "true", "elec": true},
+        {"name": "Senior Thesis (CSE 195)", "num": "CSE 195", "size": "perform self-driven research", "dc": "true", "elec": true}
+      ], "elec": true
+      }
+     ], "elec": true
+    },
+    {
+     "name": "Computational Media",
+     "children": [
+      {"name": "Game Development Experience (CMPM 120)", "num": "CMPM 120", "size": "practice concrete programming and collaboration skills to make a digital game from start to finish", "elec": true},
+      {"name": "User Experience for Interactive Media (CMPM 131)", "num": "CMPM 131", "size": "learn how to approach design problems of interactive media holistically, beyond usability and accessibility", "elec": true},
+      {"name": "Game AI (CMPM 146)", "num": "CMPM 146", "size": "intro to using artificial intelligence in computer games and creating non-player characters", "elec": true},
+      {"name": "Game Graphics and Real-Time Rendering (CMPM 163)", "num": "CMPM 163", "size": "understand real-time hardware-accelerated graphics programming for game development, visual effects, and interactive multimedia projects", "preq": "true", "elec": true},
+      {"name": "Game Engines/Lab (CMPM 164/L)", "num": "CMPM 164/L", "size": "learn graphic elements in computer games like modifying, optimizing, adding components, and building a game engine", "preq": "true", "elec": true},
+      {"name": "Game Design Studio II (CMPM 171)", "num": "CMPM 171", "size": "2/3 sequence for designing, implementing, and testing a computer game from previous course", "preq": "true", "elec": true},
+      {"name": "Game Design Studio III (CMPM 172)", "num": "CMPM 172", "size": "3/3 sequence for designing, implementing, and testing a computer game from previous courses", "preq": "true", "elec": true}
+     ], "elec": true
+    },
+    {
+     "name": "Mathematics",
+     "children": [
+      {"name": "Introduction to Dynamical Systems (AM 114)", "num": "AM 114", "size": "learn continuous/discrete dynamical systems with topics like fixed points, stability, limit cycles, etc.", "elec": true},
+      {"name": "Computational Methods and Applications (AM 147)", "num": "AM 147", "size": "apply computational methods to solving mathematical problems using Matlab", "elec": true},
+      {"name": "Introduction to Number Theory (MATH 110)", "num": "MATH 110", "size": "prime numbers, unique factorization, congruences with applications, rational/irrational numbers, and continued fractions", "preq": "true", "elec": true},
+      {"name": "Graph Theory (MATH 115)", "num": "MATH 115", "size": "Graph theory, trees, vertex and edge colorings, Hamilton cycles, Eulerian circuits, etc.", "preq": "true", "elec": true},
+      {"name": "Combinatorics (MATH 116)", "num": "MATH 116", "size": "using induction and elementary counting techniques for counting subsets, partitions, and permutations, plus recurrence relations and generating functions, etc.", "preq": "true", "elec": true},
+      {"name": "Advanced Linear Algebra (MATH 117)", "num": "MATH 117", "size": "review abstract vector spaces, dual spaces, bilinear forms, normal forms, introduction to tensor products and exterior algebras", "preq": "true", "elec": true},
+      {"name": "Advanced Number Theory (MATH 118)", "num": "MATH 118", "size": "divisibility, congruences, arithmetical functions, quadratic residues, reciprocity, and forms, etc.", "preq": "true", "elec": true},
+      {"name": "Cryptography (MATH 134)", "num": "MATH 134", "size": "introduces cryptography methods like shift, affine, Vigenere, Hill, RSA, ElGamal, and knapsack cipher", "preq": "true", "elec": true},
+      {"name": "Introductory Chaos Theory/Lab (MATH 145/L)", "num": "MATH 145/L", "size": "Lorenz and Rossler attractors, measures of chaos, attractor reconstruction, and applications from the sciences", "preq": "true", "elec": true},
+      {"name": "Numerical Analysis (MATH 148)", "num": "MATH 148", "size": "survey of the basic numerical methods which are used to solve scientific problems, including mathematical analysis and computing assignments, etc.", "preq": "true", "elec": true},
+      {"name": "Mathematical Logic I (MATH 160)", "num": "MATH 160", "size": "Propositional/predicate calculus, completeness, compactness, Lowenheim-Skolem, recursive functions, Godel incompleteness, Hilbert's 10th problem, etc.", "preq": "true", "elec": true},
+      {"name": "Mathematical Logic II (MATH 161)", "num": "MATH 160", "size": "Russell's paradox, cardinal and ordinal numbers/arithmetic, transfinite induction, axiom systems for set theory, etc.", "preq": "true", "elec": true},
+      {"name": "Classical and Bayesian Inference (STAT 132)", "num": "STAT 132", "size": "", "elec": true}
+     ], "elec": true
+    },
+    {
+     "name": "Physics (MAX 1)",
+     "children": [
+      {"name": "Introduction To Physics I & II (PHYS 5A&B)", "num": "PHYS 5A&B", "size": "elementary mechanics, vectors, Newton's laws, conservation of momentum and energy, etc. & wave motion in matter, geometrical optics, etc.", "elec": true},
+      {"name": "Introduction To Physics I & III (PHYS 5A&C)", "num": "PHYS 5A&C", "size": "elementary mechanics, vectors, Newton's laws, conservation of momentum and energy, etc. & intro to electricity and magnetism, Maxwell's equation", "elec": true},
+      {"name": "Introductory Physics I & II (PHYS 6A&B)", "num": "PHYS 6A&B", "size": "elementary mechanics, vectors, Newton's laws, conservation of momentum and energy, etc. & intro to thermodynamics and wave motion in matter", "elec": true},
+      {"name": "Introductory Physics I & III (PHYS 6A&C)", "num": "PHYS 6A&C", "size": "elementary mechanics, vectors, Newton's laws, conservation of momentum and energy, etc. & intro to electricity and magnetism, elementary circuits", "elec": true}
+     ]
+    }
+   ]
+  }
+ ]
+}

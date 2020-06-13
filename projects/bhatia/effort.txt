@@ -1,0 +1,4 @@
+Effort Document 
+Converted the data file from csv to json. Wrote a python script to parse data and add star and group fields as well as create and build graph links by zip code automatically. Added changes described in slides and added styling and formatting. 
+Weblink - 
+https://people.ucsc.edu/~mrbhatia/
