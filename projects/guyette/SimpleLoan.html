@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Business Calculators</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+</head>
+<link rel="stylesheet" href="charts/SimpleLoan.css">
+
+<body>
+
+    <!--header with drop down menu for diferent calculators-->
+    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <i class="fa fa-calculator"></i>&nbsp;&nbsp;
+
+                <!--                    <img src="logo.png" width="45" height="55">-->
+                <span class="subtitle is-5 has-text-white">BusinessCalculators.com</span>
+            </a>
+
+            <div class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="navbarCalc" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link" id="CalcMenu">
+                        <span>Calculators</span>
+                    </a>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="SimpleLoan.html">
+                            Simple Loan
+                        </a>
+                        <a class="navbar-item" href="BondYTM.html">
+                            Yield to Maturity
+                        </a>
+
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="index.html">
+                            Home
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--calculator-->
+    <section class="section">
+        <div class="level">
+            <div class="container">
+
+                <div class="content">
+                    <h1>Simple Loan Calculator</h1>
+                    <div class="subtitle">
+                        The Simple Loan Calculator will determine your monthly loan payments.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-half ">
+                    <div class="box has-background-light">
+                        <div class="">
+                            <div class="level">
+                                <!-- Left side -->
+                                <div class="level-left is-marginless">
+                                    <div class="level-item">
+                                        Loan Amount
+                                    </div>
+                                </div>
+
+                                <!-- Loan Amount Input -->
+                                <div class="level-right">
+                                    <div class="level-item">
+                                        <div class="field">
+                                            <div class="control has-icons-left">
+                                                <input id="principle" class="input" >
+                                                <span class="icon is-small is-left">
+                                                    <i class="fa fa-dollar-sign"></i>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="level">
+                                <!-- Left side -->
+                                <div class="level-left is-marginless">
+                                    <div class="level-item">
+                                        <!--                        <p class="number">2</p>-->
+                                        Annual Interest Rate
+                                    </div>
+                                </div>
+
+                                <!-- Intrest rate Input -->
+                                <div class="level-right">
+                                    <div class="level-item">
+                                        <div class="field">
+                                            <div class="control has-icons-right">
+                                                <input id="interest" class="input">
+                                                <span class="icon is-small is-right">
+                                                    <i class="fa fa-percent"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="level">
+                                <!-- Left side -->
+                                <div class="level-left is-marginless">
+                                    <div class="level-item">
+
+                                        Number of Years
+                                    </div>
+                                </div>
+
+                                <!-- Number Of Years Input -->
+                                <div class="level-right">
+                                    <div class="level-item">
+                                        <div class="field">
+                                            <div class="control has-icons-left">
+                                                <input id="years" class="input">
+                                                <span class="icon is-small is-left">
+                                                    <i class="fa fa-calendar-alt"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Do calculations    -->
+                            <div class="control">
+                                <button onclick="clearBox('chart3','slider-time');" id="calc" class="button is-medium is-fullwidth is-link is-outlined">
+                                    CALCULATE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <div class="column is-one-quarter">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RESULTS -->
+        <br>
+
+        <div class="container">
+            <h1 class="subtitle ">Results</h1>
+            <div class="level ">
+                <div class="level-left">
+                <div class="level-item">
+                    <div class="notification is-link ">
+                        <p id="monthlyPayment" class="title is-2">$0</p>
+                        <p></p>
+                        <p class="subtitle is-4">Monthly Payments</p>
+                    </div>
+                    
+                </div>
+                </div>
+                <div class="level-left">
+                <div class="level-item">
+                    <div class="notification is-link ">
+                        <p id="totalInterest" class="title is-2">0%</p>
+                        <p></p>
+                        <p class="subtitle is-4">Total Interest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </div>
+                </div>
+                </div>
+                <div class="level-right">
+                <div class="level-item ">
+                    <div class="notification is-link s">
+                        <p id="totalPayment" class="title is-2">$0</p>
+                        <p></p>
+                        <p class="subtitle is-4">Total Amount Paid&nbsp;</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!--        Graphs-->
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <span id="titleip" class="subtitle"></span>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <div id="chart3"></div>
+                </div>
+            </div>
+
+
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <span class="subtitle " id="payoff"></span>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <div class="row align-items-center">
+                        <div class="col-sm">
+                            <div id="slider-time"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <span class="subtitle" id="save"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="footer">
+        <span class="content has-text-centered">
+            <p>
+                <strong>BusinessCalculators</strong> by <a href="https://www.linkedin.com/in/jacob-guyette-705378141">Jacob Guyette</a>
+                <br>
+                <strong>Date</strong> June 8, 2020
+                <br>
+                <strong>Files</strong> index.html, SimpleLoan.html, BondYTM.html, principleGraph.js, SimpleLoan.css
+                <br>
+                <strong>GitHub Link</strong> by <a href="https://jakeguyette.github.io/BusinessCalculators/"> BusinessCalculators.com</a>
+            </p>
+
+        </span>
+    </footer>
+</body>
+
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/d3-simple-slider"></script>
+<script src="charts/principleGraph.js"></script>
+
+<script>
+    //used to clear old svg
+    function clearBox(chart3, slidertime) {
+        document.getElementById(slidertime).innerHTML = "";
+        document.getElementById(chart3).innerHTML = "";
+        
+        document.getElementById("save").innerHTML = ""; 
+    }
+    
+</script></html>

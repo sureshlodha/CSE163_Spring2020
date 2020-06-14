@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Business Calculators</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .navbar-dropdown {
+            left: calc(-40%);
+        }
+
+        @media screen and (max-width: 350px) {
+            #CalcMenu {
+                color: white;
+                background-color: white
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="vue-target">
+        <!--header with drop down menu for diferent calculators-->
+        <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <i class="fa fa-calculator"></i>&nbsp;&nbsp;
+
+                    <span class="subtitle is-5 has-text-white">BusinessCalculators.com</span>
+                </a>
+
+                <div class="navbar-burger burger" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div id="navbarCalc" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" id="CalcMenu">
+                            <span>Calculators</span>
+                        </a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a class="navbar-item" href="SimpleLoan.html">
+                                Simple Loan
+                            </a>
+                            <a class="navbar-item" href="BondYTM.html">
+                                Yield to Maturity
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="index.html">
+                                Home
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!--calculator-->
+        <section class="section">
+            <div class="level">
+                <div class="container">
+
+                    <div class="content">
+                        <h1>Yield to Maturity (YTM) Calculator</h1>
+                        <div class="subtitle">
+                            The YTM Calculator will determine the annual return of a bond that is held until maturity.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-one-half ">
+                        <div class="box has-background-light">
+                            <div class="">
+                                <div class="level">
+                                    <!-- Left side -->
+                                    <div class="level-left is-marginless">
+                                        <div class="level-item">
+                                            <!--                        <p class="number">1</p>-->
+                                            Face Value
+                                        </div>
+                                    </div>
+
+                                    <!-- Face Value Input -->
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input v-model="face" class="input">
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fa fa-dollar-sign"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="level">
+                                    <!-- Left side -->
+                                    <div class="level-left is-marginless">
+                                        <div class="level-item">
+                                            Annual Coupon Rate
+                                        </div>
+                                    </div>
+
+                                    <!-- coupon rate Input -->
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <div class="field">
+                                                <div class="control has-icons-right">
+                                                    <input v-model="coupon" class="input">
+                                                    <span class="icon is-small is-right">
+                                                        <i class="fa fa-percent"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="level">
+                                    <!-- Left side -->
+                                    <div class="level-left is-marginless">
+                                        <div class="level-item">
+                                            Years to Maturity
+                                        </div>
+                                    </div>
+
+                                    <!-- input num years -->
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input v-model="years" class="input">
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fa fa-calendar-alt"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="level">
+                                    <!-- Left side -->
+                                    <div class="level-left is-marginless">
+                                        <div class="level-item">
+                                            Coupon Payments per Year
+                                        </div>
+                                    </div>
+
+                                    <!-- input payments -->
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input v-model="payments" class="input">
+                                                    <span class="icon is-small is-left">
+                                                        <i class="fa fa-money-bill"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="level">
+                                    <!-- Left side -->
+                                    <div class="level-left is-marginless">
+                                        <div class="level-item">
+                                            Current Bond Trading Price
+                                        </div>
+                                    </div>
+
+                                    <!-- input payments -->
+                                    <div class="level-right">
+                                        <div class="level-item">
+                                            <div class="field">
+                                                <div class="control has-icons-left">
+                                                    <input v-model="cprice" class="input">
+                                                    <span class="icon is-small is-left">
+                                                        <span class="icon is-small is-left">
+                                                            <i class="fa fa-dollar-sign"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Do calculations v-on:click="ytmfunc" -->
+                                <div class="control">
+                                    <button class="button is-large is-fullwidth is-link is-outlined">
+                                        IN PROGRESS
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column is-one-quarter">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RESULTS -->
+            <br>
+            <div class="container">
+                <h1 class="title ">Results</h1>
+                <div class="columns is-multiline">
+
+                    <div class="column is-one-third">
+                        <div class="notification is-link has-text">
+                            <p id="YTM" class="title is-2">{{ytm}}%</p>
+                            <p class="subtitle is-4">Yield to Maturity</p>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-third">
+                    </div>
+
+                    <div class="column is-one-third">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <!--credit-->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>BusinessCalculators</strong> by <a href="https://www.linkedin.com/in/jacob-guyette-705378141">Jacob Guyette</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/nerdamer.core.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/Algebra.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/Calculus.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nerdamer@latest/Solve.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#vue-target",
+        data: {
+            face: null,
+            coupon: null,
+            years: null,
+            payments: null,
+            cprice: null,
+            ytm: 0
+
+        },
+        methods: {
+            ytmfunc: function() {
+
+                let fv = this.face;
+                let pv = this.cprice;
+                let Y = this.years;
+                let nper = Y * this.payments
+                let pmt = fv * (this.coupon / 100);
+                
+                let A = (pmt +((fv-pv)/Y))
+                let B = ((fv+pv)/2);
+                this.ytm = (A/B);
+
+                console.log(this.ytm);
+
+
+
+            },
+        }
+            
+
+
+    });
+</script></html>
